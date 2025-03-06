@@ -54,8 +54,8 @@ def pz_plot(datafile, outputdir, filename='pz_plot'):
     plt.figure(figsize=(6, 6))
     plt.scatter(df['expected'], df['observed'], c='darkblue', alpha=0.75, s=10)
     plt.plot([0, df["expected"].max()], [0, df["expected"].max()], linestyle="--", color="red", label="y=x")
-    plt.xlabel("Expected -log10(p)")
-    plt.ylabel("Observed -log10(p)")
+    plt.xlabel("-log10(p.ztest)")
+    plt.ylabel("-log10(p)")
     plt.savefig(f'{outputdir}/{filename}.png', dpi=300)
     plt.close()
 
