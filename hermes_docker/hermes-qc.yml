@@ -58,14 +58,14 @@ Resources:
         Image: !Sub '${AWS::AccountId}.dkr.ecr.us-east-1.amazonaws.com/hermes-qc-repo'
         Command:
           - 'python3'
-          - 'hermes_qc.py'
-          - '-s'
-          - 'Ref::s3-path'
-          - '-g'
+          - 'main.py'
+          - '--gwaspath'
           - 'Ref::file-guid'
-          - '-c'
+          - '--refdir'
+          - 'Ref::s3-path'
+          - '--colmap'
           - 'Ref::col-map'
-          - '-o'
+          - '--output'
           - 'Ref::script-options'
         JobRoleArn: !GetAtt HermesQCJobRole.Arn
         ExecutionRoleArn: !GetAtt HermesQCJobRole.Arn
@@ -121,5 +121,3 @@ Resources:
                   - 'logs:CreateLogStream'
                   - 'logs:PutLogEvents'
                 Resource: '*'
-
-

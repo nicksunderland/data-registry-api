@@ -1,0 +1,15 @@
+name: gwas_qc
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.9
+  - biopython
+  - scipy
+  - pyspark
+  - matplotlib
+  - boto3
+  - click
+  - pip
+  - pip:
+      - qmplot
